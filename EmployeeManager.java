@@ -6,8 +6,19 @@ import java.util.*;
 public class EmployeeManager {
 
     public static void main(String[] args) {
-
-        // Check arguments
+        if (args.length != 1) {
+    System.out.println("Error: Exactly one argument required.");
+    System.out.println("Usage:");
+    System.out.println("  l          - Load employees");
+    System.out.println("  s          - Show random employee");
+    System.out.println("  +Name      - Add employee");
+    System.out.println("  ?Name      - Search employee");
+    System.out.println("  uName      - Update employee");
+    System.out.println("  dName      - Delete employee");
+    System.out.println("  c          - Count words");
+    return;
+}
+  // Check arguments
         if (args[0].equals("l")) {
 
             System.out.println("Loading data ...");
