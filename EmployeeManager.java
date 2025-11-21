@@ -3,7 +3,6 @@ import java.util.*;
 
 public class EmployeeManager {
 
-    
     public static String[] readEmployees() throws Exception {
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
@@ -12,13 +11,14 @@ public class EmployeeManager {
         }
     }
 
-
     public static void writeEmployees(String data) throws Exception {
         try (BufferedWriter writer = new BufferedWriter(
                 new FileWriter(Constants.EMPLOYEE_FILE))) {
             writer.write(data);
         }
     }
+
+    
     public static void main(String[] args) {
 
         // Argument validation
@@ -27,6 +27,7 @@ public class EmployeeManager {
             System.out.println(Constants.USAGE_MESSAGE);
             return;
         }
+
         if (args[0].equals("l")) {
             System.out.println("Loading data ...");
             try {
@@ -36,6 +37,7 @@ public class EmployeeManager {
             } catch (Exception e) {}
             System.out.println("Data Loaded.");
         }
+
         else if (args[0].equals("s")) {
             System.out.println("Loading data ...");
             try {
@@ -74,8 +76,12 @@ public class EmployeeManager {
             System.out.println("Loading data ...");
             try {
                 String[] employees = readEmployees();
-                System.out.println(employees.length + " word(s) | " +
-                        String.join(",", employees).length() + " characters");
+
+                int wordCount = employees.length;
+
+                int charCount = String.join(",", employees).length();
+
+                System.out.println(wordCount + " word(s) | " + charCount + " characters");
             } catch (Exception e) {}
             System.out.println("Data Loaded.");
         }
